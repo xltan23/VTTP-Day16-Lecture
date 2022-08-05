@@ -1,0 +1,31 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Weather Chicken Dinner</title>
+    <style>
+        .center-it {
+            display: flex;
+            justify-content: center;
+            padding: 50px;
+        }
+    </style>
+</head>
+<body>
+    <div class="center-it">
+        <h1>City of choice: <span data-th-text="${city}"></span></h1>
+    </div>
+    <div class="center-it">
+        <table>
+            <tr data-th-each="weather: ${weatherList}">
+                <td>
+                    <img data-th-src="@{http://openweathermap.org/img/wn/{icon}@2x.png(icon=${weather.icon})}" alt="">
+                </td>
+                <td data-th-text="${weather.main}"></td>
+                <td data-th-text="${weather.description}"></td>
+            </tr>
+        </table>
+    </div>
+</body>
+</html>
